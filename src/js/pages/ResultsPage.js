@@ -47,9 +47,15 @@ var ResultsPage = React.createClass({
   },
   render() {
     let {business} = this.state;
+    String.prototype.capitalizeFirstLetter = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+    var category = this.props.params.category.capitalizeFirstLetter();
+    var location = this.props.params.location.capitalizeFirstLetter();
+
     return (
       <div>
-        <h1>Chicago Hotels</h1>
+        <h1>{location} {category}</h1>
         <div class="row">
           <div class="col-lg-4">
             <ul class="list-group">
